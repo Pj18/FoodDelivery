@@ -16,9 +16,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.punit.fooddelivery.FoodContract.FoodEntry;
 
@@ -88,6 +90,34 @@ public class MainActivity extends AppCompatActivity
                 TextView t1 = (TextView) addView.findViewById(R.id.foodname);
                 TextView t2 = (TextView) addView.findViewById(R.id.foodprice);
                 ImageView i1 = (ImageView) addView.findViewById(R.id.foodimage);
+                Button addb=(Button)addView.findViewById(R.id.addbutton);
+                Button decb=(Button)addView.findViewById(R.id.decreasebutton);
+                Button addcart=(Button)addView.findViewById(R.id.addtocartbutton);
+                final TextView itemquant=(TextView)addView.findViewById(R.id.quantitybutton);
+
+
+                addb.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        int num=Integer.parseInt(itemquant.getText().toString());
+
+                        num++;
+                        itemquant.setText(String.valueOf(num));
+                    }
+                });
+                decb.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        int num=Integer.parseInt(itemquant.getText().toString());
+                        if(num>0)
+                        {
+                            num--;
+                            itemquant.setText(String.valueOf(num));
+                        }
+                    }
+                });
                 t1.setText(NameF);
                 t2.setText(PriceF);
                 i1.setImageResource(getResources().getIdentifier(""+IMGF, "drawable", getPackageName()));

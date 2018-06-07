@@ -4,42 +4,105 @@
     android:layout_height="125dp"
     android:layout_width="match_parent"
     card_view:cardCornerRadius="10dp"
-    android:layout_margin="15dp">
+    android:layout_margin="15dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <ImageView
             android:id="@+id/foodimage"
             android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1.25"
-            android:layout_margin="5dp"/>
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:scaleType="fitCenter"/>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.75"
             android:layout_gravity="center"
-            android:layout_margin="5dp"
-            android:orientation="vertical">
-
+            android:layout_margin="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="vertical"
+                android:layout_gravity="center">
             <TextView
                 android:id="@+id/foodname"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_weight="1.5"
+                android:layout_weight="1.75"
                 android:layout_margin="5dp"
-                android:textSize="15dp"/>
+                android:textSize="15dp"
+                android:text="Name"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:gravity="center"/>
             <TextView
                 android:id="@+id/foodprice"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:layout_margin="5dp"
-                android:textSize="15dp"/>
+                android:textSize="15dp"
+                android:text="Price"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:layout_gravity="center"/>
+            </LinearLayout>
 
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_margin="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:gravity="center">
+                <Button
+                    android:id="@+id/addbutton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:id="@+id/quantitybutton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="30dp"
+                    android:layout_margin="5dp"
+                    android:textAlignment="center"
+                    android:layout_weight="1"/>
+                <Button
+                    android:id="@+id/decreasebutton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:layout_weight="1"/>
 
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center">
+                <Button
+                    android:id="@+id/addtocartbutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ADD to CART"
+                    android:layout_marginBottom="5dp"/>
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
