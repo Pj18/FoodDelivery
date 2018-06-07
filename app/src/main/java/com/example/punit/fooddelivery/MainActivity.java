@@ -1,5 +1,6 @@
 package com.example.punit.fooddelivery;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -26,6 +27,8 @@ import com.example.punit.fooddelivery.FoodContract.FoodEntry;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    CartHelper cDBHelper=new CartHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,8 +90,8 @@ public class MainActivity extends AppCompatActivity
                 String NameF = cursor.getString(cursor.getColumnIndex(FoodEntry.COLUMN_NAME));
                 String PriceF = cursor.getString(cursor.getColumnIndex(FoodEntry.COLUMN_PRICE));
                 String IMGF = cursor.getString(cursor.getColumnIndex(FoodEntry.COLUMN_IMG));
-                TextView t1 = (TextView) addView.findViewById(R.id.foodname);
-                TextView t2 = (TextView) addView.findViewById(R.id.foodprice);
+                final TextView t1 = (TextView) addView.findViewById(R.id.foodname);
+                final TextView t2 = (TextView) addView.findViewById(R.id.foodprice);
                 ImageView i1 = (ImageView) addView.findViewById(R.id.foodimage);
                 Button addb=(Button)addView.findViewById(R.id.addbutton);
                 Button decb=(Button)addView.findViewById(R.id.decreasebutton);
@@ -115,6 +118,22 @@ public class MainActivity extends AppCompatActivity
                         {
                             num--;
                             itemquant.setText(String.valueOf(num));
+                        }
+                    }
+                });
+                addcart.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SQLiteDatabase db=cDBHelper.getWritableDatabase();
+
+                        ContentValues values=new ContentValues();
+                        values.put(CartContract.CartEntry.CART_NAME,t1.getText().toString());
+                        values.put(CartContract.CartEntry.CART_PRICE,Integer.parseInt(t2.getText().toString()));
+                        values.put(CartContract.CartEntry.CART_QUANTITY,Integer.parseInt(itemquant.getText().toString()));
+                        int id=(int)db.insertWithOnConflict(CartContract.CartEntry.TABLE_NAME,null,values,SQLiteDatabase.CONFLICT_IGNORE);
+                        if(id==-1)
+                        {
+                            db.update(CartContract.CartEntry.TABLE_NAME,values, CartContract.CartEntry.CART_NAME+"=?",new String[] {t1.getText().toString()});
                         }
                     }
                 });
