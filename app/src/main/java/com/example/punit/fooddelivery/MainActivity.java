@@ -124,6 +124,7 @@ public class MainActivity extends AppCompatActivity
                 addcart.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if(Integer.parseInt(itemquant.getText().toString())>0){
                         SQLiteDatabase db=cDBHelper.getWritableDatabase();
 
                         ContentValues values=new ContentValues();
@@ -135,6 +136,7 @@ public class MainActivity extends AppCompatActivity
                         {
                             db.update(CartContract.CartEntry.TABLE_NAME,values, CartContract.CartEntry.CART_NAME+"=?",new String[] {t1.getText().toString()});
                         }
+                        Toast.makeText(MainActivity.this,String.valueOf(id),Toast.LENGTH_LONG).show();}
                     }
                 });
                 t1.setText(NameF);
