@@ -131,12 +131,13 @@ public class MainActivity extends AppCompatActivity
                         values.put(CartContract.CartEntry.CART_NAME,t1.getText().toString());
                         values.put(CartContract.CartEntry.CART_PRICE,Integer.parseInt(t2.getText().toString()));
                         values.put(CartContract.CartEntry.CART_QUANTITY,Integer.parseInt(itemquant.getText().toString()));
-                        int id=(int)db.insertWithOnConflict(CartContract.CartEntry.TABLE_NAME,null,values,SQLiteDatabase.CONFLICT_IGNORE);
-                        if(id==-1)
+                        int id=(int)db.update(CartContract.CartEntry.TABLE_NAME,values, CartContract.CartEntry.CART_NAME+"=?",new String[] {t1.getText().toString()});
+                        if(id==0)
                         {
-                            db.update(CartContract.CartEntry.TABLE_NAME,values, CartContract.CartEntry.CART_NAME+"=?",new String[] {t1.getText().toString()});
+                            db.insertWithOnConflict(CartContract.CartEntry.TABLE_NAME,null,values,SQLiteDatabase.CONFLICT_IGNORE);
+
                         }
-                        Toast.makeText(MainActivity.this,String.valueOf(id),Toast.LENGTH_LONG).show();}
+                        }
                     }
                 });
                 t1.setText(NameF);

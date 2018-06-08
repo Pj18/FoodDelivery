@@ -16,7 +16,20 @@ public class CartHelper extends SQLiteOpenHelper{
     }
 
     @Override
+    public void onOpen(SQLiteDatabase db){
+
+
+                db.execSQL("DROP TABLE IF EXISTS '"+CartEntry.TABLE_NAME+"'");
+                onCreate(db);
+    }
+
+    @Override
     public void onCreate(SQLiteDatabase db) {
+
+
+
+
+
         String CREATE_CART_TABLE="CREATE TABLE "+CartEntry.TABLE_NAME+"("
                 +CartEntry._ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "
                 +CartEntry.CART_NAME+" TEXT, "
@@ -28,7 +41,17 @@ public class CartHelper extends SQLiteOpenHelper{
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int il) {
+    public void onUpgrade(SQLiteDatabase db, int i, int il) {
+
+
+
+
 
     }
+
+
+
+
+
+
 }
