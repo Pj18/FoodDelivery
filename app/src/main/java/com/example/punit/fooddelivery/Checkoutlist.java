@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.punit.fooddelivery.CartContract.CartEntry;
 
@@ -20,6 +21,7 @@ public class Checkoutlist extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.checkout);
         getlist();
     }
 
@@ -39,6 +41,8 @@ public class Checkoutlist extends AppCompatActivity {
         try
         {
             int total=0;
+            TextView tt=(TextView)findViewById(R.id.totalamount);
+            Toast.makeText(this,String.valueOf(cursor.getCount()),Toast.LENGTH_LONG).show();
             while (cursor.moveToNext()){
                 LayoutInflater layoutInflater = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 View addView=layoutInflater.inflate(R.layout.itemview,null);
@@ -47,11 +51,11 @@ public class Checkoutlist extends AppCompatActivity {
                 TextView iquantity=(TextView)addView.findViewById(R.id.iquantity);
                 TextView itotal=(TextView)addView.findViewById(R.id.itotal);
                 iname.setText(cursor.getString(cursor.getColumnIndex(CartEntry.CART_NAME)));
-                iprice.setText(cursor.getString(cursor.getColumnIndex(CartEntry.CART_PRICE)));
+                iprice.setText("Rs."+cursor.getString(cursor.getColumnIndex(CartEntry.CART_PRICE)));
                 iquantity.setText(cursor.getString(cursor.getColumnIndex(CartEntry.CART_QUANTITY)));
                 int it=Integer.parseInt(cursor.getString(cursor.getColumnIndex(CartEntry.CART_PRICE)))*
                         Integer.parseInt(cursor.getString(cursor.getColumnIndex(CartEntry.CART_QUANTITY)));
-                itotal.setText(String.valueOf(it));
+                itotal.setText("Rs."+String.valueOf(it));
                 total=total+it;
                 layout.addView(addView);
                 LinearLayout addView1=new LinearLayout(this);
@@ -62,8 +66,8 @@ public class Checkoutlist extends AppCompatActivity {
 
 
             }
-            TextView tt=(TextView)findViewById(R.id.totalamount);
-            tt.setText(String.valueOf(total));
+
+            tt.setText("Rs."+String.valueOf(total));
         }
         finally
         {

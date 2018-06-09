@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity
                     public void onClick(View v) {
                         if(Integer.parseInt(itemquant.getText().toString())>0){
                         SQLiteDatabase db=cDBHelper.getWritableDatabase();
-
+                        Toast.makeText(MainActivity.this,itemquant.getText().toString(),Toast.LENGTH_LONG).show();
                         ContentValues values=new ContentValues();
                         values.put(CartContract.CartEntry.CART_NAME,t1.getText().toString());
                         values.put(CartContract.CartEntry.CART_PRICE,Integer.parseInt(t2.getText().toString()));

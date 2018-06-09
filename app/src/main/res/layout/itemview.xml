@@ -3,26 +3,27 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/itemv"
     android:layout_width="match_parent"
-    android:layout_height="80dp">
+    android:layout_height="100dp"
+    android:layout_margin="8dp">
 <LinearLayout
     android:layout_width="0dp"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_weight="1.25">
+    android:layout_weight="1.5">
     <TextView
         android:id="@+id/iname"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:text="itemname"
-        android:textSize="35dp"
-        android:layout_weight="1.5"/>
+        android:textSize="25dp"
+        android:layout_weight="2.5"/>
     <TextView
         android:id="@+id/iprice"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="1.2"
         android:text="price"
-        android:textSize="25dp"/>
+        android:textSize="20dp"/>
 </LinearLayout>
     <LinearLayout
         android:layout_width="0dp"
