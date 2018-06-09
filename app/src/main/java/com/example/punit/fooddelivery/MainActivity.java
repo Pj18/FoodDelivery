@@ -2,6 +2,7 @@ package com.example.punit.fooddelivery;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -183,8 +184,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.carticon) {
+            Intent i=new Intent(MainActivity.this,Checkoutlist.class);
+            startActivity(i);
         }
 
         return super.onOptionsItemSelected(item);
