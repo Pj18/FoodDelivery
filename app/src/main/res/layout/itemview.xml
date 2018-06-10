@@ -4,7 +4,10 @@
     android:id="@+id/itemv"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:layout_margin="8dp">
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp">
+
+
 <LinearLayout
     android:layout_width="0dp"
     android:layout_height="match_parent"
@@ -13,17 +16,17 @@
     <TextView
         android:id="@+id/iname"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="70dp"
         android:text="itemname"
         android:textSize="25dp"
-        android:layout_weight="2.5"/>
+        android:gravity="center_vertical"/>
     <TextView
         android:id="@+id/iprice"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.2"
+        android:layout_height="30dp"
         android:text="price"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:gravity="center_vertical"/>
 </LinearLayout>
     <LinearLayout
         android:layout_width="0dp"
@@ -50,5 +53,6 @@
             android:textSize="35dp"
             android:gravity="center"/>
     </LinearLayout>
+
 
 </LinearLayout>

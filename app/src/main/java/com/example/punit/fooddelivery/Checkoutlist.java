@@ -42,7 +42,7 @@ public class Checkoutlist extends AppCompatActivity {
         {
             int total=0;
             TextView tt=(TextView)findViewById(R.id.totalamount);
-            Toast.makeText(this,String.valueOf(cursor.getCount()),Toast.LENGTH_LONG).show();
+            //Toast.makeText(this,String.valueOf(cursor.getCount()),Toast.LENGTH_LONG).show();
             while (cursor.moveToNext()){
                 LayoutInflater layoutInflater = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 View addView=layoutInflater.inflate(R.layout.itemview,null);
@@ -58,12 +58,14 @@ public class Checkoutlist extends AppCompatActivity {
                 itotal.setText("Rs."+String.valueOf(it));
                 total=total+it;
                 layout.addView(addView);
-                LinearLayout addView1=new LinearLayout(this);
+                /*LinearLayout addView1=new LinearLayout(this);
                 addView1.setLayoutParams(new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,25
                 ));
+                layout.addView(addView1);*/
+                LayoutInflater layoutInflater1 = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View addView1=layoutInflater1.inflate(R.layout.lineadd,null);
                 layout.addView(addView1);
-
 
             }
 

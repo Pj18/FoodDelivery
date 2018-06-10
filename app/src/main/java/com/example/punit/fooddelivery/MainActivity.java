@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
             }
         });
 
@@ -55,8 +56,12 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
+        SQLiteDatabase db=cDBHelper.getWritableDatabase();
+        cDBHelper.deletedb(db);
         info();
+
+
+
     }
 
     private void info()

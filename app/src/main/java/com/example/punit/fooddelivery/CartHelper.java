@@ -15,13 +15,13 @@ public class CartHelper extends SQLiteOpenHelper{
         super(context,DATABASE_NAME,null,DATABASE_VERSION);
     }
 
-/*    @Override
-    public void onOpen(SQLiteDatabase db){
+
+    public void deletedb(SQLiteDatabase db){
 
 
                 db.execSQL("DROP TABLE IF EXISTS '"+CartEntry.TABLE_NAME+"'");
                 onCreate(db);
-    }*/
+    }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
