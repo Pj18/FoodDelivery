@@ -23,6 +23,8 @@
             android:label="checkout">
 
         </activity>
+        <activity android:name=".foodlistc"
+            android:label="foodlistc"/>
     </application>
 
 </manifest>
