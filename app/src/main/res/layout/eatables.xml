@@ -1,7 +1,7 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:layout_height="125dp"
+    android:layout_height="135dp"
     android:layout_width="match_parent"
     card_view:cardCornerRadius="10dp"
     android:layout_margin="15dp"
@@ -12,14 +12,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
+
+       <!-- <ImageView
             android:id="@+id/foodimage"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_margin="5dp"
-            android:scaleType="fitCenter"/>
+            android:scaleType="fitCenter"/>-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/foodimage"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ap"
+            app:civ_border_color="@color/colorAccent"
+            app:civ_border_width="1dp"
+            android:layout_gravity="center"
+            android:paddingLeft="5dp"/>
 
         <LinearLayout
             android:layout_width="0dp"
